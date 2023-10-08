@@ -1,1 +1,49 @@
+/* 整体字体 */
+@font-face {
+    font-family: "PingFangSCRegular";
+    src: url("../assets/fonts/PingFangSCRegular.ttf") format('truetype');
+}
 
+body {
+    font-family: PingFangSC-Regular;
+}
+
+@font-face {
+    font-family: 'iconfont';
+    src: url('../assets/fonts/iconfont.ttf') format('truetype');
+}
+
+.iconfont {
+    font-family: "iconfont" !important;
+    font-size: 16px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+.center {
+    width: 1152px;
+    margin: 0 auto;
+}
+
+.clearfix {
+    overflow: hidden;
+}
+
+.clearfix::after {
+    content: "";
+    clear: both;
+    display: block;
+}
+
+.tac {
+    text-align: center;
+}
+
+.db {
+    display: block;
+}
+
+.dib {
+    display: inline-block;
+}
