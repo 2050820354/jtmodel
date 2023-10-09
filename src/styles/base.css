@@ -1,7 +1,7 @@
 /* 整体字体 */
 @font-face {
     font-family: "PingFangSCRegular";
-    src: url("../fonts/PingFangSCRegular.ttf") format('truetype');
+    src: url("../assets/fonts/PingFangSCRegular.ttf") format('truetype');
 }
 
 body {
@@ -10,7 +10,7 @@ body {
 
 @font-face {
     font-family: 'iconfont';
-    src: url('../fonts/iconfont.ttf') format('truetype');
+    src: url('../assets/fonts/iconfont.ttf') format('truetype');
 }
 
 .iconfont {
