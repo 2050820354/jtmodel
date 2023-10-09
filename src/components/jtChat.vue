@@ -32,7 +32,7 @@
         </div>
         <div class="q-bar">
             <div class="form-floating">
-                <textarea ref="inp" v-model="newMessage" @keyup.enter="sendMessage" class="form-control"
+                <textarea v-model="newMessage" @keyup.enter="sendMessage" class="form-control"
                     placeholder="Shift + Enter 换行，Enter 发送" style="height: 100px"></textarea>
             </div>
         </div>
@@ -110,9 +110,6 @@
                 this.chatMessages = [];
             }
         },
-        mounted(){
-            this.$ref.inp.focus();
-        }
     };
 </script>
 <style>
@@ -204,5 +201,4 @@
     .q-bar .form-control{
         border-radius: 10px;
     }
-
 </style>
