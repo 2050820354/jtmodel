@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="response-box">
-                        <p class="response" v-html="message.text" style="white-space: pre-line;"></p>
+                        <p class="response" v-html="renderMarkdown(message.text)" style="white-space: pre-line;"></p>
                     </div>
                 </div>
             </div>
@@ -32,7 +32,7 @@
         </div>
         <div class="q-bar">
             <div class="form-floating">
-                <textarea v-model="newMessage" @keyup.enter="sendMessage" class="form-control"
+                <textarea v-focus v-model="newMessage" @keyup.enter="sendMessage" class="form-control"
                     placeholder="Shift + Enter 换行，Enter 发送" style="height: 100px"></textarea>
             </div>
         </div>
@@ -41,7 +41,7 @@
 
 <script>
     import axios from 'axios';
-
+    
     export default {
         data() {
             return {
@@ -75,7 +75,7 @@
                             model: "text-davinci-003",
                             prompt: prompt,
                             temperature: 0.5,
-                            max_tokens: 4000,
+                            max_tokens: 700,
                             top_p: 1,
                             frequency_penalty: 1,
                             presence_penalty: 1.0,
@@ -103,12 +103,20 @@
             addMessage(type, t) {
                 // 在聊天中添加消息
                 const text = t.replace(/\n/,'')
+                // const text = t2.replace(/^```([\s\S]*)```$/g, '<kbd>$1</kbd>')
                 this.chatMessages.push({ id: Date.now(), type, text });
             },
             clearChat() {
                 // 清除聊天记录
                 this.chatMessages = [];
-            }
+            },
+            renderMarkdown(text) {
+                // 将Markdown风格的"```"代码块转换为HTML
+                return text.replace(/```([\s\S]*?)```/g, (match, code) => {
+                    // 使用 <pre> 和 <code> 标签包裹代码块
+                    return `<pre><code>${code}</code></pre>`;
+                });
+            },
         },
     };
 </script>
